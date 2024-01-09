@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content="freeCodeCamp Technical Documentation certification project">
+        <link rel="stylesheet" href="styles.css">
+        <title>technical-documentation</title>
+    </head>
+    <body>
+                  
+        <nav id="navbar">
+            <header>Object Oriented Programming</header>
+            <ul>
+                <li><a class="nav-link" href="#What_is_Object_Oreinted_Programming?">What is Object Oreinted Programming?</a></li>
+                <li><a class="nav-link" href="#Class">Class</a></li>
+                <li><a class="nav-link" href="#Objects">Objects</a></li>
+                <li><a class="nav-link" href="#Attributes">Attributes</a></li>
+                <li><a class="nav-link" href="#Methods">Methods</a></li>
+                <li><a class="nav-link" href="#Inheritance">Inheritance</a></li>
+                <li><a class="nav-link" href="#Encapsulation">Encapsulation</a></li>
+                <li><a class="nav-link" href="#Abstraction">Abstraction</a></li>
+                <li><a class="nav-link" href="#Polymorphism">Polymorphism</a></li>
+                <li><a class="nav-link" href="#Method_Overriding">Method overriding</a></li>
+                <li><a class="nav-link" href="#Method_Overloading">Method overloading</a></li>
+                <li><a class="nav-link" href="#Conclusion">Conclusion</a></li>
+                <li><a class="nav-link" href="#Reference">Reference</a></li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section id="What_is_Object_Oreinted_Programming?" class="main-section">
+            <header>What is Object Oreinted Programming?</header>
+            <img src="https://www.educative.io/cdn-cgi/image/format=auto,width=1200,quality=75/api/page/4792707659595776/image/download/5909454286487552" alt="description image">
+                <p><strong>Object-oriented programming (OOP)</strong> is a fundamental programming paradigm used by nearly every 
+                   developer at some point in their career. OOP is the <strong>most popular programming paradigm</strong> used for 
+                   software development and is taught as the standard way to code for most of a programmer's educational
+                   career.</p>
+                   <p>Object-Oriented Programming (OOP) is a programming paradigm in computer science that relies on
+                     the concept of <strong>classes</strong> and <strong>objects</strong>. It is used to structure a software program into simple, reusable
+                     pieces of code blueprints (usually called classes), which are used to create insectionidual instances of
+                      objects. There are many object-oriented programming languages, including JavaScript, <span class="blue-text">C++</span>, <span class="blue-text">Java</span>, and
+                       <span class="blue-text">Python</span>.</p>
+                    <p>OOP languages are not necessarily restricted to the object-oriented programming paradigm. Some languages, such as JavaScript,
+                         Python, and PHP, all allow for both procedural and object-oriented programming styles.</p>
+            </section>
+            <section id="Class" class="main-section">
+                <header>Class</header>
+                <p>In a nutshell, classes are essentially <strong>user-defined data types</strong>. Classes are where we create a blueprint
+                   for the structure of methods and attributes. Individual objects are instantiated from this blueprint.</p>
+                   <p>Classes contain fields for attributes and methods for behaviors. In our <span>Dog</span> class example, attributes 
+                    include <span>name</span> & <span>birthday</span>, while methods include <span>bark()</span> and <span>updateAttendance()</span>.</p>
+                   <p>Here's a code snippet demonstrating how to program a <span>Dog</span> class using the <span class="blue-text">JavaScript</span> language.</p>
+                   <pre>
+<code>
+    class Dog {
+    constructor(name, birthday) {
+        this.name = name;
+        this.birthday = birthday;
+    }
+
+    //Declare private variables
+    _attendance = 0;
+
+    getAge() {
+        //Getter
+        return this.calcAge();
+    }
+
+    calcAge() {
+        //calculate age using today's date and birthday
+        return Date.now() - this.birthday;
+    }
+    
+    bark() {
+        return console.log("Woof!");
+    }
+
+    updateAttendance() {
+        //add a day to the dog's attendance days at the petsitters
+        this._attendance++;
+    }
+   }
+</code>
+                   </pre>
+                <p>Remember, the class is a template for modeling a dog, and an object is instantiated from the class representing an individual real-world item.</p>
+            </section>
+            <section id="Objects" class="main-section">
+                <header>Objects</header>
+                <p>Objects are, unsurprisingly, a huge part of OOP! Objects are instances of a class created with 
+                    specific data. For example, in the code snippet below, <span>Rufus</span> is an instance of the <span>Dog</span> class.</p>
+                        <pre>
+<code>
+    class Dog {
+        constructor(name, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        //Declare private variables
+        _attendance = 0;
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return Date.now() - this.birthday;
+        }
+        
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+    
+    //instantiate a new object of the Dog class, and individual dog named Rufus
+    const rufus = new Dog("Rufus", "2/1/2017");
+</code>
+                        </pre>
+                    <p class="list-title">When the new class <span>Dog</span> is called:</p>
+                    <ul>
+                        <li><p>A new object is created named <span>Rufus</span></p></li>
+                        <li><p>The constructor runs <span>name</span> & <span>birthday</span> arguments, and assigns values</p></li>
+                    </ul>
+            </section>
+            <section id="Attributes" class="main-section">
+                <header>Attributes</header>
+                <p>Attributes are the information that is stored. Attributes are defined in the <span>Class</span> template.
+                    When objects are instantiated, individual objects contain data stored in the Attributes field.</p>
+                <p>The state of an object is defined by the data in the object's attributes fields. For example, a puppy and
+                     a dog might be treated differently at a pet camp. The birthday could define the state of an object and 
+                     allow the software to handle dogs of different ages differently.</p>
+            </section>
+            <section id="Methods" class="main-section">
+                <header>Methods</header>
+                <p>Methods represent behaviors. Methods perform actions; methods might return information about an object
+                     or update an object's data. The method's code is defined in the class definition.</p>
+                <p>When individual objects are instantiated, these objects can call the methods defined in the class. In the code
+                     snippet below, the <span>bark</span> method is defined in the <span>Dog</span> class, and the <span>bark()</span> method is called on the <span>Rufus</span> object.</p>
+                    <pre>
+<code>
+    class Dog {
+        //Declare protected (private) fields
+        _attendance = 0;
+        constructor(name, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        //Declare private variables
+        _attendance = 0;
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return Date.now() - this.birthday;
+        }
+        
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+</code>
+                    </pre>
+                <p>Methods often modify, update or delete data. Methods don't have to update data though. For example,
+                 the <span>bark()</span> method doesn't update any data because barking doesn't modify any of the attributes of 
+                 the <span>Dog</span> class: <span>name</span> or <span>birthday</span>.</p>
+                <p>The <span>updateAttendance()</span> method adds a day the <span>Dog</span> attended the pet-sitting camp. The attendance 
+                    attribute is important to keep track of for billing Owners at the end of the month.</p>
+                <p>The updateAttendance() method adds a day the Dog attended the pet-sitting camp. The attendance 
+                    attribute is important to keep track of for billing Owners at the end of the month.</p>
+                <p>Methods are how programmers promote reusability and keep functionality encapsulated inside an object.
+                     This reusability is a great benefit when debugging. If there's an error, there's only one place to
+                      find it and fix it instead of many.</p>
+                <p>The underscore in <span>_attendance</span> denotes that the variable is protected and shouldn't be modified directly.
+                     The <span>updateAttendance()</span> method changes <span>_attendance</span>.</p>
+            </section>
+            <section id="Inheritance" class="main-section">
+                <header>Inheritance</header>
+                <p>Inheritance allows classes to inherit features of other classes. Put another way, parent classes extend attributes and behaviors to child classes. <strong>Inheritance supports reusability</strong>.</p>
+                <p>If basic attributes and behaviors are defined in a parent class, child classes can be created, extending the functionality of the parent class and adding additional attributes and behaviors.</p>
+                <p>For example, herding dogs have the unique ability to herd animals. In other words, all herding dogs are dogs, but not all dogs are herding dogs. We represent this difference by creating a child class <span>HerdingDog</span> from the parent class <span>Dog</span>, and then adding the unique <span>herd()</span> behavior.</p>
+                <p>The benefits of inheritance are programs can create a generic parent class and then create more specific child classes as needed. This simplifies programming because instead of recreating the structure of the <span>Dog</span> class multiple times, <strong>child classes automatically gain access to functionalities within their parent class</strong>.</p>
+                <p>In the following code snippet, child class <span>HerdingDog</span> inherits the method <span>bark</span> from the parent class <span>Dog</span>, and the child class adds an additional method, <span>herd()</span>.</p>
+                    <pre>
+<code>
+    //Parent class Dog
+    class Dog{
+        //Declare protected (private) fields
+        _attendance = 0;
+    
+        constructor(namee, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return this.calcAge();
+        }
+    
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+    
+    //Child class HerdingDog, inherits from parent Dog
+    class HerdingDog extends Dog {
+        constructor(name, birthday) {
+            super(name);
+            super(birthday);
+        }
+    
+        herd() {
+            //additional method for HerdingDog child class
+            return console.log("Stay together!")
+        }
+    }
+</code>
+                    </pre>
+                <p>Notice that the <span>HerdingDog</span> class does not have a copy of the <span>bark()</span> method. It inherits the <span>bark()</span> method defined in the parent <span>Dog</span> class.</p>
+                <p>When the code calls <span>fluffy.bark()</span> method, the <span>bark()</span> method walks up the chain of child to parent classes to find where the <span>bark</span> method is defined.</p>
+                    <pre>
+<code>
+    //Parent class Dog
+    class Dog{
+        //Declare protected (private) fields
+        _attendance = 0;
+    
+        constructor(namee, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return this.calcAge();
+        }
+    
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+    
+    //Child class HerdingDog, inherits from parent Dog
+    class HerdingDog extends Dog {
+        constructor(name, birthday) {
+            super(name);
+            super(birthday);
+        }
+    
+        herd() {
+            //additional method for HerdingDog child class
+            return console.log("Stay together!")
+        }
+    }
+    
+    //instantiate a new HerdingDog object
+    const fluffy = new HerdingDog("Fluffy", "1/12/2019");
+    fluffy.bark();
+</code>
+                    </pre>
+                <p>In JavaScript, inheritance is also known as <span class="blue-text">prototyping</span>. A prototype object is a template for another object to inherit properties and behaviors. There can be multiple prototype object templates, creating a prototype chain.</p>
+                <p>This is the same concept as the parent/child inheritance. Inheritance is from parent to child. In our example, all three dogs can bark, but only Maisel and Fluffy can herd.</p>
+                <p>The <span>herd()</span> method is defined in the child <span>HerdingDog</span> class, so the two objects, <span>Maisel</span> and <span>Fluffy</span>, instantiated from the <span>HerdingDog</span> class have access to the <span>herd()</span> method.</p>
+                <p>Rufus is an object instantiated from the parent class <span>Dog</span>, so Rufus only has access to the <span>bark()</span> method.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Object</th>
+                            <th>instantiated from Class</th>
+                            <th>Parent Class</th>
+                            <th>Methods</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rufus</td>
+                            <td>Dog</td>
+                            <td>N/A</td>
+                            <td>bark()</td>
+                        </tr>
+                        <tr>
+                            <td>Maisel</td>
+                            <td>Herding Dog</td>
+                            <td>Dog</td>
+                            <td>bark(), herd()</td>
+                        </tr>
+                        <tr>
+                            <td>Fluffy</td>
+                            <td>Herding Dog</td>
+                            <td>Dog</td>
+                            <td>bark(), herd()</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="Encapsulation" class="main-section">
+                <header>Encapsulation</header>
+                <p>Encapsulation means containing all important information <strong>inside an object</strong>, and only exposing selected information to the outside world. Attributes and behaviors are defined by code inside the class template.</p>
+                <p>Then, when an object is instantiated from the class, the data and methods are encapsulated in that object. Encapsulation hides the internal software code implementation inside a class and hides the internal data of inside objects.</p>
+                <p class="list-title">Encapsulation requires defining some fields as private and some as public.</p>
+                <ul>
+                    <li><p><strong>Private/ Internal interface:</strong>methods and properties accessible from other methods of the same class.</p></li>
+                    <li><p><strong>Public / External Interface:</strong>methods and properties accessible from outside the class.</p></li>
+                </ul>
+                <p>Let's use a car as a metaphor for encapsulation. The information the car shares with the outside world, using blinkers to indicate turns, are public interfaces. In contrast, the engine is hidden under the hood.</p>
+                <p>It's a private, internal interface. When you're driving a car down the road, other drivers require information to make decisions, like whether you're turning left or right. However, exposing internal, private data like the engine temperature would confuse other drivers.</p>
+                <p>Encapsulation adds <strong>security</strong>. Attributes and methods can be set to private, so they can't be accessed outside the class. To get information about data in an object, public methods & properties are used to access or update data.</p>
+                <p>Within classes, most programming languages have public, protected, and private sections. The public section is the limited selection of methods accessible from the outside world or other classes within the program. Protected is only accessible to child classes.</p>
+                <p>Private code can only be accessed from within that class. To go back to our dog/owner example, encapsulation is ideal so owners can't access private information about other people's dogs.</p>
+                    <pre>
+<code>
+    //Parent class Dog
+    class Dog{
+        //Declare protected (private) fields
+        _attendance = 0;
+    
+        constructor(namee, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return this.calcAge();
+        }
+    
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+    
+    //instantiate a new instance of Dog class, an individual dog named Rufus
+    const rufus = new Dog("Rufus", "2/1/2017");
+    //use getter method to calculate Rufus' age
+    rufus.getAge();  
+</code>
+                    </pre>
+                <p>Consider the <span>getAge()</span> method in our example code, the calculation details are hidden inside the <span>Dog</span> class. The <span>rufus</span> object uses the <span>getAge()</span> method to calculate Rufus's age.</p>
+                <p><strong>Encapsulating & updating data:</strong> Since methods can also update an object's data, the developer controls what values can be changed through public methods.</p>
+                <p>This allows us to <strong>hide important information</strong> that should not be changed from phishing and the more likely scenario of other developers mistakenly changing important data.</p>
+                <p>Encapsulation adds security to code and makes it easier to collaborate with external developers. When you're programming to share information with an external company, you wouldn't want to expose the classes' templates or private data because your company owns that intellectual property.</p>
+                <p>Instead, developers create public methods that allow other developers to call methods on an object. Ideally, these public methods come with documentation for external developers.</p>
+                <p class="list-title">The benefits of encapsulation are summarized here:</p>
+                <ul>
+                    <li><p><strong>Adds security:</strong>Only public methods and attributes are accessible from the outside</p></li>
+                    <li><p><strong>Protects against common mistakes:</strong>Only public fields & methods are accessible, so developers don't accidentally change something dangerous</p></li>
+                    <li><p><strong>Protects IP:</strong>Code is hidden in a class; only public methods are accessible by the outside developers</p></li>
+                    <li><p><strong>Supportable:</strong>Most code undergoes updates and improvements</p></li>
+                    <li><p><strong>Hides complexity:</strong>No one can see what's behind the object's curtain!</p></li>
+                </ul>
+            </section>
+            <section id="Abstraction" class="main-section">
+                <header>Abstraction</header>
+                <p>Abstraction is an extension of encapsulation that uses classes and objects, which contain data and code, to hide the internal details of a program from its users. This is done by creating a <strong>layer of abstraction</strong> between the user and the more complex source code, which helps protect sensitive information stored within the source code.</p>
+                <p class="list-title">Abstraction</p>
+                <ul>
+                    <li><p>Reduces complexity and improves code readability</p></li>
+                    <li><p>Facilitates code reuse and organization</p></li>
+                    <li><p>Data hiding improves data security by hiding sensitive details from users</p></li>
+                    <li><p>Enhances productivity by abstracting away low-level details</p></li>
+                </ul>
+                <p>Abstraction can also be explained using cars. Think of how a driver operates a vehicle using only the car's dashboard.</p>
+                <p>A driver uses the car's steering wheel, accelerator, and brake pedals to control the vehicle. The driver does not have to worry about how the engine works or what parts are used for each movement. This is an abstraction – only the important aspects necessary for a driver to use the car are visible.</p>
+                <p>Similarly, data abstraction allows developers to work with complex information without worrying about its inner workings. In this way, it helps to improve code quality and readability.</p>
+                <p>Abstraction also serves an important security role. By only displaying selected pieces of data and only allowing data to be <strong>accessed through</strong> classes and <strong>modified through methods</strong>, we protect the data from exposure. To continue with the car example, you wouldn't want an open gas tank while driving a car.</p>
+                <p class="list-title">The benefits of abstraction are summarized below:</p>
+                <ul>
+                    <li><p>Simple, high-level user interfaces</p></li>
+                    <li><p>Complex code is hidden</p></li>
+                    <li><p>Security</p></li>
+                    <li><p>Easier software maintenance</p></li>
+                    <li><p>Code updates rarely change the abstraction</p></li>
+                </ul>
+            </section>
+            <section id="Polymorphism" class="main-section">
+                <header>Polymorphism</header>
+                <p>Polymorphism means designing objects to <strong>share behaviors</strong>. Using inheritance, objects can override shared parent behaviors with specific child behaviors. Polymorphism allows the same method to execute different behaviors in two ways: method overriding and method overloading.</p>
+            </section>
+            <section id="Method_Overriding" class="main-section">
+                <header>Method Overriding</header>
+                <p>Runtime polymorphism uses method overriding. In method overriding, a child class can implement differently than its parent class. In our dog example, we may want to give <span>TrackingDog</span> a specific type of bark different than the generic dog class.</p>
+                <p class="note">Method overriding could create a <span>bark()</span> method in the child class that overrides the <span>bark()</span> method in the parent <span>Dog</span> class.</p>
+                    <pre>
+<code>
+    //Parent class Dog
+    class Dog{
+        //Declare protected (private) fields
+        _attendance = 0;
+    
+        constructor(namee, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return this.calcAge();
+        }
+    
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    }
+    
+    //Child class TrackingDog, inherits from parent
+    class TrackingDog extends Dog {
+        constructor(name, birthday)
+            super(name);
+            super(birthday);
+        }
+    
+        track() {
+            //additional method for TrackingDog child class
+            return console.log("Searching...")
+        }
+    
+        bark() {
+            return console.log("Found it!");
+        }
+    
+    
+    //instantiate a new TrackingDog object
+    const duke = new TrackingDog("Duke", "1/12/2019");
+    duke.bark(); //returns "Found it!"
+</code>
+</pre>
+</section>
+<section id="Method_Overloading" class="main-section">
+<header>Method overloading</header>
+<p><span>Compile Time polymorphism</span> uses method overloading. Methods or functions may have the same name but a different number of parameters passed into the method call. Different results may occur depending on the number of parameters passed in.</p>
+<pre>
+    <code>
+    //Parent class Dog
+    class Dog{
+        //Declare protected (private) fields
+        _attendance = 0;
+    
+        constructor(namee, birthday) {
+            this.name = name;
+            this.birthday = birthday;
+        }
+    
+        getAge() {
+            //Getter
+            return this.calcAge();
+        }
+    
+        calcAge() {
+            //calculate age using today's date and birthday
+            return this.calcAge();
+        }
+    
+        bark() {
+            return console.log("Woof!");
+        }
+    
+        updateAttendance() {
+            //add a day to the dog's attendance days at the petsitters
+            this._attendance++;
+        }
+    
+        updateAttendance(x) {
+            //adds multiple to the dog's attendance days at the petsitters
+            this._attendance = this._attendance + x;
+        }
+    }
+    
+    //instantiate a new instance of Dog class, an individual dog named Rufus
+    const rufus = new Dog("Rufus", "2/1/2017");
+    rufus.updateAttendance(); //attendance = 1
+    rufus.updateAttendance(4); // attendance = 5
+</code>
+</pre>                       
+                <p>In this code example, if no parameters are passed into the <span>updateAttendance()</span> method. One day is added to the count. If a parameter is passed in <span>updateAttendance(4)</span>, then 4 is passed into the <span>x</span> parameter in <span>updateAttendance(x)</span>, and 4 days are added to the count.</p>
+                <p class="list-title">The benefits of Polymorphism are:</p>
+                <ul><li><p>Objects of different types can be passed through the same interface</p></li></ul>
+                <ul><li><p>Method overriding</p></li></ul>
+                <ul><li><p>Method overloading</p></li></ul>
+            </section>
+            <section id="Conclusion" class="main-section">
+                <header>Conclusion</header>
+                <p>Object-oriented programming requires thinking about the structure of the program and planning out an object-oriented design before you start coding. OOP in computer programming focuses on how to break up the requirements into simple, reusable classes that can be used to blueprint instances of objects. Overall, implementing OOP allows for better data structures and reusability, saving time in the long run.</p>
+                <p class="list-title">If you'd like to take a deep dive into OOP, Educative has courses for OOP in:</p>
+                <ul>
+                    <li><span class="blue-text">Java</span></li>
+                    <li><span class="blue-text">JavaScript</span></li>
+                    <li><span class="blue-text">Python</span></li>
+                    <li><span class="blue-text">C++</span></li>
+                    <li><span class="blue-text">C#</span></li>
+                </ul>
+                <p>These courses are text-based with in-browser coding environments, so you can learn even faster and more efficiently. No setup is required; get in and start coding!</p>
+                <p class="wish">Happy learning!</p>
+            </section>
+            <section id="Reference" class="main-section">
+                <header>Reference</header>
+                <p id="reference-text">All the documentation in this page is taken from <a href="https://www.educative.io/blog/object-oriented-programming">educative</a></p>
+            </section>
+        </main>
+    </body>
+</html>
